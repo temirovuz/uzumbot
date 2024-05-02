@@ -1,7 +1,7 @@
 import asyncio
 import logging
 
-from aiogram import Bot, Dispatcher, Router
+from aiogram import Bot, Dispatcher
 from aiogram.enums import ParseMode
 
 from config import bot_token
