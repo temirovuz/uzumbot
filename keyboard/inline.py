@@ -1,4 +1,4 @@
-from aiogram.utils.keyboard import KeyboardBuilder, InlineKeyboardButton, KeyboardButton
+from aiogram.utils.keyboard import KeyboardBuilder, InlineKeyboardButton
 
 
 def language():
