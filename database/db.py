@@ -10,7 +10,8 @@ def get_db():
 
 
 # ------------------------------------->  User <-------------------------------------------#
-def create_user(user_id, db: get_db()):
+def create_user(user_id):
+    db = get_db()
     user = User(user_id=user_id)
     db.add(user)
     db.commit()
@@ -29,4 +30,3 @@ def add_location(user_id, lat, lon, db: get_db()):
         user.latitude = lat
         user.longitude = lon
         db.commit()
-
