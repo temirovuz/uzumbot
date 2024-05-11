@@ -1,5 +1,5 @@
-from sqlalchemy import create_engine, Column, Integer, String, Float, BigInteger
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine, Column, Integer, String, Float, BigInteger, ForeignKey
+from sqlalchemy.orm import sessionmaker, relationship
 from sqlalchemy.ext.declarative import declarative_base
 
 engine = create_engine('sqlite:///uzumbaza.db')
@@ -17,3 +17,32 @@ class User(Base):
     longitude = Column(Float)
     lang = Column(String(2))
 
+
+class Shops(Base):  # dokonlar
+    __tablename__ = 'shops'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+
+
+class FoodsCategory(Base):
+    __tablename__ = 'foods_category'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+
+
+class Foods(Base):  # Ovqatlar
+    __tablename__ = 'foods'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    price = Column(Float)
+    category_id = Column(Integer, ForeignKey('foods_category.id'))
+    shops_id = Column(Integer, ForeignKey('shops.id'))
+
+
+class Drinks(Base):  # ichimliklar
+    __tablename__ = 'drinks'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    price = Column(Float)
+    shops_id = Column(Integer, ForeignKey('shops.id'))
+    shops = relationship("Shops", back_populates="drinks")

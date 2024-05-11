@@ -53,3 +53,4 @@ def add_lang(user_id, lang):
         db.commit()
     else:
         return False
+
