@@ -37,5 +37,7 @@ def admin_buttons():
         KeyboardButton(text="Foods qo'shish"),
         KeyboardButton(text="Ichimliklar qo'shish"),
         KeyboardButton(text="Rasmlar qo'shish"),
-
+        KeyboardButton(text="Xabar yuborish")
     ])
+    keyboard.adjust(1)
+    return keyboard.as_markup(resize_keyboard=True)
