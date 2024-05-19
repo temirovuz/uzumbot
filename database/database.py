@@ -6,6 +6,7 @@ engine = create_engine('sqlite:///uzumbaza.db')
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 
+
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
@@ -16,15 +17,18 @@ class User(Base):
     longitude = Column(Float)
     lang = Column(String(2))
 
+
 class Shops(Base):  # dokonlar
     __tablename__ = 'shops'
     id = Column(Integer, primary_key=True)
     name = Column(String)
 
+
 class FoodsCategory(Base):
     __tablename__ = 'foods_category'
     id = Column(Integer, primary_key=True)
     name = Column(String)
+
 
 class Foods(Base):  # Ovqatlar
     __tablename__ = 'foods'
@@ -34,6 +38,7 @@ class Foods(Base):  # Ovqatlar
     category_id = Column(Integer, ForeignKey('foods_category.id'))
     shops_id = Column(Integer, ForeignKey('shops.id'))
 
+
 class Drinks(Base):  # ichimliklar
     __tablename__ = 'drinks'
     id = Column(Integer, primary_key=True)
@@ -42,8 +47,10 @@ class Drinks(Base):  # ichimliklar
     shops_id = Column(Integer, ForeignKey('shops.id'))
     shops = relationship("Shops", back_populates="drinks")
 
-class Images(Base):
+
+class Images(Base):  # Images
     __tablename__ = 'images'
     id = Column(Integer, primary_key=True)
-    image = Column()
+    image = Column(String)
     category_id = Column(Integer, ForeignKey('foods_category.id'))
+
