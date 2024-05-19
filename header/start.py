@@ -1,6 +1,5 @@
 from aiogram import types, Router
 from aiogram.filters import CommandStart, Command
-from aiogram.types import InlineKeyboardMarkup
 
 from keyboard.button import admin_buttons
 
@@ -9,7 +8,7 @@ router = Router()
 
 @router.message(CommandStart())
 async def start_bot(message: types.Message):
-    await message.reply(text="Salom test sifatida bot ishlamoqda bu vaqtincha hammasi!\nHammasi yaxshilikka")
+    await message.answer(text="Salom test sifatida bot ishlamoqda bu vaqtincha hammasi!\nHammasi yaxshilikka")
 
 
 @router.message(Command('info'))

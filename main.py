@@ -2,16 +2,16 @@ import asyncio
 import logging
 
 from aiogram import Bot, Dispatcher
-from aiogram.enums import ParseMode
+
 
 from config import bot_token
 from header import router
 
 
 async def main():
-    bot = Bot(token=bot_token, parse_mode=ParseMode.HTML)
+    bot = Bot(token=bot_token)
     dp = Dispatcher(bot=bot)
-    dp.include_router(router=router)
+    dp.include_router(router)
     await dp.start_polling(bot)
 
 

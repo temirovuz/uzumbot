@@ -7,4 +7,5 @@ from .start import router as start
 router = Router()
 
 
-router.include_routers(start, admin)
+router.include_router(admin)
+router.include_router(start)
