@@ -27,3 +27,15 @@ def regions():
     ])
     keyboard.adjust(1)
     return keyboard.as_markup(resize_keyboard=True)
+
+
+def admin_buttons():
+    keyboard = KeyboardBuilder(KeyboardButton)
+    keyboard.add(*[
+        KeyboardButton(text="Do'kon qo'shish"),
+        KeyboardButton(text="Foods Catergoriya qo'shish"),
+        KeyboardButton(text="Foods qo'shish"),
+        KeyboardButton(text="Ichimliklar qo'shish"),
+        KeyboardButton(text="Rasmlar qo'shish"),
+
+    ])
