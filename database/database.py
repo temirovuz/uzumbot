@@ -45,6 +45,7 @@ class Drinks(Base):  # ichimliklar
     id = Column(Integer, primary_key=True)
     name = Column(String)
     price = Column(Float)
+    image = Column(String)
     shops_id = Column(Integer, ForeignKey('shops.id'))
     shops = relationship("Shops", back_populates="drinks")
 
