@@ -35,6 +35,7 @@ class Foods(Base):  # Ovqatlar
     id = Column(Integer, primary_key=True)
     name = Column(String)
     price = Column(Float)
+    image = Column(String)
     category_id = Column(Integer, ForeignKey('foods_category.id'))
     shops_id = Column(Integer, ForeignKey('shops.id'))
 
@@ -51,6 +52,13 @@ class Drinks(Base):  # ichimliklar
 class Images(Base):  # Images
     __tablename__ = 'images'
     id = Column(Integer, primary_key=True)
-    image = Column(String)
+    shops_id = Column(Integer, ForeignKey('shops.id'))
     category_id = Column(Integer, ForeignKey('foods_category.id'))
+    image = Column(String)
 
+
+class Basket(Base):
+    __tablename__ = 'basket'
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    foods_id = Column(Integer, ForeignKey('foods.id'))
