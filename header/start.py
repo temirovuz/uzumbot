@@ -1,5 +1,8 @@
 from aiogram import types, Router
 from aiogram.filters import CommandStart, Command
+from aiogram.types import InlineKeyboardMarkup
+
+from keyboard.button import admin_buttons
 
 router = Router()
 
@@ -16,4 +19,4 @@ async def info(message: types.Message):
 
 @router.message(Command('admin'))
 async def admin(message: types.Message):
-    await message.answer(text='Kerakli bolimni tanlang')
+    await message.answer(text='Kerakli bolimni tanlang', reply_markup=admin_buttons())
