@@ -48,8 +48,9 @@ class Drinks(Base):  # ichimliklar
     shops = relationship("Shops", back_populates="drinks")
 
 
-class Images(Base):
+class Images(Base):  # Images
     __tablename__ = 'images'
     id = Column(Integer, primary_key=True)
-    image = Column()
+    image = Column(String)
     category_id = Column(Integer, ForeignKey('foods_category.id'))
+
