@@ -21,3 +21,8 @@ class AddImage(StatesGroup):
     shop = State()
     category = State()
     image = State()
+
+
+class AddBasket(StatesGroup):
+    user = State()
+    food = State()
