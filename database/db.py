@@ -1,4 +1,4 @@
-from .database import Base, Session, User
+from .database import Session, User, Shops
 
 
 # ------------------------------------->  User <-------------------------------------------#
@@ -54,3 +54,24 @@ def add_lang(user_id, lang):
     else:
         return False
 
+
+# ------------------------------------------------------------------------------------------------------------------ #
+def add_shops(name):
+    db = Session()
+    shop = Shops(name=name)
+    db.add(shop)
+    db.commit()
+    db.refresh(shop)
+    return shop
+
+
+def get_shops():
+    db = Session()
+    shops = db.query(Shops).all()
+    return shops
+
+
+if __name__ == '__main__':
+
+    shops = get_shops()
+    print(shops)
